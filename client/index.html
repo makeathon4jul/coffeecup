@@ -8,7 +8,6 @@
 	 <script src="websockettest.js"> </script>
      <style type="text/css">
 		body{
-			text-align: center;
 			font-family: Arial;
 			color: black;
 			background-color: white	;
@@ -29,14 +28,41 @@
 			padding: 10px;
 			text-align: left;
 		}
+		.header {
+		  display: block;
+		  margin-left: auto;
+		  margin-right: auto;
+		  width: 50%;
+		}
+		.header img {
+		  float: left;
+		  width: 100px;
+		  height: 100px;
+		  background: #555;
+		}
+
+		.header h1 {
+		  position: relative;
+		  top: 18px;
+		  left: 10px;
+		}
+		.content {
+		text-align: center;
+		}
 	</style>
 
 </head>
    
    <body onload="WebSocketTest(false)">
   
-	  <h1>AmExpresso</h1>
+	  <div class="header">
+		  <img src="images/logo.jpg" alt="logo" />
+		  <h1>AmExpresso Order</h1>
+		</div>
+	  <div class="content">
+	  
 	  <h2 id="name"/>
-	  <h2 id="drink"/>      
+	  <h2 id="drink"/>
+		</div>       
    </body>
 </html>
