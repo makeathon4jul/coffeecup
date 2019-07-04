@@ -1,5 +1,5 @@
 
-         function WebSocketTest() {
+         function WebSocketTest(withPhoto) {
             
             if ("WebSocket" in window) {
                
@@ -15,14 +15,23 @@
                ws.onmessage = function (evt) { 
                   var received_msg = JSON.parse(evt.data);
 				  
-				  var row = findRow(received_msg.name);
+/* 				  var row = findRow(received_msg.name);
 				  if (row.length == 0) {
 					  $("#boardList").append("<tr id='" + received_msg.name + "'><td>" + received_msg.name + "</td><td>" + received_msg.coffee 
 					  + "</td><td><input type='button' value='Served' onclick='removeRow(\""+received_msg.name+"\")'\"></input></td></tr>");
 				  } else {
 					highLightRow(row, true, "red");
 				  }
-               };
+				  
+					
+ */               
+					if (withPhoto) {
+						$('#photo').attr('src', "images/" + received_msg.photo);
+					}
+					$("#name").html(received_msg.name);
+					$("#drink").html(received_msg.drink);
+
+				};
 				
                ws.onclose = function() { 
                   

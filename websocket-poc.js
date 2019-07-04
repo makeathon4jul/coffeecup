@@ -5,7 +5,7 @@ const wss = new WebSocket.Server({ port: 8082 })
 
 // const ourQueue = new Queue();
 
-const coffeeLookup = { "0xf6" : {"name":"Heckley", "coffee":"Latte"}, "0xf5": { "name":"Clive", "coffee":"Espresso" }, "0x4c": { "name":"Brindha", "coffee":"Frappacino" }  }; 
+const coffeeLookup = { "0xf6" : {"name":"Hekla Helgadottir", "drink":"Large Latte with coconut milk", "photo":"hekla.jpg"}, "0xf5": { "name":"Clive May", "drink":"Large English Breakfast Tea" }, "0x4c": { "name":"Chris Walker", "drink":"Small Frappacino" }  }; 
 const wsList = {};
 var wsCount = 0;
 
@@ -40,11 +40,13 @@ app.get('/send', function(req, res) {
 	//console.log('wsList length...' + wsList.length);
 	
 	var coffee = coffeeLookup[rfid];
+	if (coffee == null) {
+		coffee = {"name":"Not Registered", "drink":"Unknown"};
+	}
 	
 	for (w in wsList)  {
 		wsList[w].send(JSON.stringify(coffee));
 	}
-	console.log('Done');
     res.sendStatus(200);
 });
 
