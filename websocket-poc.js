@@ -5,7 +5,7 @@ const wss = new WebSocket.Server({ port: 8082 })
 
 // const ourQueue = new Queue();
 
-const coffeeLookup = { "123" : {"name":"Heckley", "coffee":"Latte"}, "456": { "name":"Clive", "coffee":"Espresso" }  }; 
+const coffeeLookup = { "0xf6" : {"name":"Heckley", "coffee":"Latte"}, "0xf5": { "name":"Clive", "coffee":"Espresso" }, "0x4c": { "name":"Brindha", "coffee":"Frappacino" }  }; 
 const wsList = {};
 var wsCount = 0;
 
